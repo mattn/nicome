@@ -22,6 +22,12 @@ var num = flag.Int("n", 500, "number of comments")
 func main() {
 	flag.Parse()
 
+	if flag.NArg() == 0 {
+		fmt.Fprintln(os.Stderr, "Usage of nicome: [動画ID]")
+		flag.PrintDefaults()
+		os.Exit(1)
+	}
+
 	var file string
 	if runtime.GOOS == "windows" {
 		file = filepath.Join(os.Getenv("APPDATA"), "nicome", "config.json")
@@ -55,6 +61,9 @@ func main() {
 		}
 
 		for _, comment := range comments {
+			if comment.Anonymity != 0 {
+				continue
+			}
 			fmt.Println(comment.No, comment.Text)
 		}
 	}

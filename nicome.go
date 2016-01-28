@@ -12,13 +12,13 @@ import (
 )
 
 type Chat struct {
-	Thread    string `xml:"thread,attr"`
-	No        string `xml:"no,attr"`
-	VPos      string `xml:"vpos,attr"`
-	Date      string `xml:"date,attr"`
-	Mail      string `xml:"mail,attr"`
-	UserId    string `xml:"user_i,attr"`
-	Anonymity string `xml:"anonymity,attr"`
+	Thread    int    `xml:"thread,attr"`
+	No        int    `xml:"no,attr"`
+	VPos      int    `xml:"vpos,attr"`
+	Date      int    `xml:"date,attr"`
+	Mail      int    `xml:"mail,attr"`
+	UserId    int    `xml:"user_id,attr"`
+	Anonymity int    `xml:"anonymity,attr"`
 	Text      string `xml:",chardata"`
 }
 
