@@ -44,7 +44,7 @@ func (c *client) Login() error {
 	}
 	resp, err := c.client.PostForm("https://secure.nicovideo.jp/secure/login?site=niconico", params)
 	if err != nil {
-		return nil
+		return err
 	}
 	defer resp.Body.Close()
 	return nil
